@@ -1,0 +1,17 @@
+{
+  "name": "Google Antigravity IDE",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postCreateCommand": "curl -fsSL https://dl.google.com/antigravity/install-server.sh | sh",
+  "postStartCommand": "antigravity-server --port 8080 --host 0.0.0.0 &",
+  "forwardPorts": [8080, 9222],
+  "portsAttributes": {
+    "8080": {
+      "label": "Interface Antigravity",
+      "onAutoForward": "openBrowser"
+    },
+    "9222": {
+      "label": "Agent Mission Control (CDP)",
+      "onAutoForward": "silent"
+    }
+  }
+}
